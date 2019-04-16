@@ -13,7 +13,7 @@ else
 
 fi
 echo -e "\033[31m 3.拷贝.vimrc到~/.vimrc\033[0m" 
-cp .vimrc ~/
+cp vim-ubuntu   ~/.vimrc
 
 echo -e "\033[31m 4.安装其他插件 \033[0m" 
 echo "正在努力为您安装bundle程序"  > youyifeng

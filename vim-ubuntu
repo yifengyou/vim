@@ -65,7 +65,7 @@ Plugin 'yifengyou/vim-color' " yyf vim 主题
 Plugin 'w0rp/ale'
 Plugin 'yianwillis/vimcdoc'
 Plugin 'gdbmgr'
-Plugin 'ludovicchabant/vim-gutentags' " 自动索引
+" Plugin 'ludovicchabant/vim-gutentags' " 自动索引,自动生成tags
 Plugin 'Valloric/YouCompleteMe' " 自动补全工具
 call vundle#end()
 " ==============================================================================
@@ -199,15 +199,15 @@ let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 " ==============================================================================
 " 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project', '.gitignore']
+" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project', '.gitignore']
 " 添加ctags额外参数，会让tags文件变大
 " let g:gutentags_ctags_extra_args = ['--fields=+niazlS', '--extra=+q']
-let g:gutentags_ctags_extra_args = ['--fields=+lS']
+" let g:gutentags_ctags_extra_args = ['--fields=+lS']
 " let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 " let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-if isdirectory("kernel/") && isdirectory("mm/")
-	let g:gutentags_file_list_command = 'find arch/arm/ mm/ kernel/ include/ init/ lib/'
-endif
+" if isdirectory("kernel/") && isdirectory("mm/")
+" 	let g:gutentags_file_list_command = 'find arch/arm/ mm/ kernel/ include/ init/ lib/'
+" endif
 " ==============================================================================
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
