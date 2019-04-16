@@ -24,9 +24,5 @@ echo "请耐心等待" >> youyifeng
 vim youyifeng -c "BundleInstall" -c "q" -c "q" 
 rm youyifeng
 
-echo -e "\033[31m 5.编译配制YouCompleteMe \033[0m" 
-python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
-cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/
-
 echo -e "\033[31m安装完成,enjoy~~ \033[0m" 
 

@@ -1,0 +1,54 @@
+set tabstop=8 " ts 制表符:设置TAB宽8个空格, 8个字符的缩进符合内核代码编程风格
+set shiftwidth=8 " sw 制表符:自动缩进空白字符个数
+set softtabstop=8 " sts 制表符:与tabstop共同决定一个Tab间缩进字符数量
+"set expandtab " et 制表符:将制表符以空格代替,内核代码中不使用该特性
+set textwidth=80 " 内核代码一行不超过80个字符
+set autoindent " ai 自动缩进:
+set cindent " ci 自动缩进:
+set smartindent " si 自动缩进:
+set number " 行号:设置行号,默认不显示行号
+set nocompatible " 关闭与VI兼容,避免不必要的错误
+set linebreak " 整词换行
+set wrap " 自动换行
+set shortmess=atI " 不显示援助乌干达儿童提示
+set showmode " 状态栏显示vim当前模式
+set scrolloff=0 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set showmatch " 括号配对情况, 跳转并高亮一下匹配的括号
+set showcmd " 在状态栏显示正在输入的命令
+set history=1000 " 历史记录
+set ruler " 编辑过程中在右下角显示光标位置的状态行
+"set mouse=a " 禁用鼠标选中
+"set selection=exclusive " 禁用鼠标选中
+"set selectmode=mouse,key " 禁用鼠标选中
+set autowrite " 自动保存
+set autoread " 自动读取:当文件被改动时自动读取
+"set hlsearch " 搜索字符串:高亮显示所有匹配处
+"set cursorline " 不突出显示光标所在行
+set incsearch " 搜索字符串:搜索字符串立即显示匹配点
+set confirm " 在处理未保存或只读文件的时候，弹出确认 
+if has("syntax")
+	syntax on " 启用语法高亮
+	syntax enable " 启用语法高亮
+endif
+set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
+set noerrorbells " 关闭错误信息响铃
+set formatoptions+=m " 如遇Unicode值大于255的文本，不必等到空格再折行
+set formatoptions+=B " 合并两行中文时，不在中间加空格
+set fileencoding=utf-8 "设置当前文件编码，可以更改
+set ffs=unix,dos,mac " 文件格式，默认 ffs=dos,unix
+set encoding=utf-8 " 设置新文件的编码为 UTF-8
+set completeopt=longest,menu " 让Vim的补全菜单行为与一般IDE一致
+set ttyfast
+set laststatus=1 " 命令行高度,默认1
+set t_ti= t_te=	" 设置退出vim时保留当前画面(防误删)
+set nofoldenable " 关闭代码折叠
+filetype on " 侦测文件类型
+filetype plugin on "载入文件类型插件
+filetype plugin indent on " 加载vim自带和插件相应的语法和文件类型相关脚本
+set t_Co=256 " 启用256色彩显示
+set background=dark 
+colorscheme default " 设置主题:必须放置本配置文件插件安装之后的位置
+set guifont=Monospace\ 14 " 设置字体,仅在GUI vim 环境下有效
+hi! link signcolumn   linenr
+hi! link showmarkshll diffadd
+hi! link showmarkshlu diffchange
