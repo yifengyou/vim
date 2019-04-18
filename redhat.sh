@@ -18,8 +18,6 @@ cp vim-redhat ~/.vimrc
 echo -e "\033[31m 4.安装其他插件 \033[0m" 
 echo "正在努力为您安装bundle程序"  > youyifeng
 echo "安装完毕将自动退出" >> youyifeng
-echo "Plugin Valloric/YouCompleteMe 该插件的安装会比较的慢" >> youyifeng
-echo "Plugin Valloric/YouCompleteMe 要求 vim 版本高于7.4.1578，否则会报错" >> youyifeng
 echo "请耐心等待" >> youyifeng
 vim youyifeng -c "BundleInstall" -c "q" -c "q" 
 rm youyifeng
