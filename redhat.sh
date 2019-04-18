@@ -3,7 +3,7 @@
 echo -e "\033[31m安装将花费一定时间，请耐心等待直到安装完成^_^ \033[0m" 
 echo -e "\033[31m 1.依赖软件包安装 \033[0m" 
 
-sudo apt-get install -y build-essential vim git cscope ctags vim-gnome ctags xclip astyle python-setuptools python-dev cmake
+sudo yum install -y vim git cscope ctags cmake
 
 echo -e "\033[31m 2.Vundle插件安装 \033[0m" 
 if ! ls ~/.vim/bundle/Vundle.vim &> /dev/null;then
@@ -13,7 +13,7 @@ else
 
 fi
 echo -e "\033[31m 3.拷贝.vimrc到~/.vimrc\033[0m" 
-cp .vimrc ~/
+cp vim-redhat ~/.vimrc
 
 echo -e "\033[31m 4.安装其他插件 \033[0m" 
 echo "正在努力为您安装bundle程序"  > youyifeng
