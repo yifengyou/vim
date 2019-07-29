@@ -22,9 +22,10 @@ alias ps='ps aux'
 #export http_proxy='127.0.0.1:5050'
 #export https_proxy='127.0.0.1:5050'
 #export ftp_proxy='127.0.0.1:5050'
-export http_proxy=
-export https_proxy=
-export ftp_proxy=
+
+#export http_proxy=
+#export https_proxy=
+#export ftp_proxy=
 
 # PS1 settings
 # PS1='[\u@\h \w]\$ '

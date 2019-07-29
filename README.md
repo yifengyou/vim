@@ -1,5 +1,5 @@
-# vim
-my vim config~
+# Linux快速配置
+
 
 
 1. 当前目录有两个隐藏文件（.开头的文件默认隐藏） .bashrc 和 .vimrc
