@@ -10,7 +10,7 @@ set smartindent " si 自动缩进:
 set number " 行号:设置行号,默认不显示行号
 set nocompatible " 关闭与VI兼容,避免不必要的错误
 set linebreak " 整词换行
-set wrap " 自动换行
+set nowrap " 自动换行
 set shortmess=atI " 不显示援助乌干达儿童提示
 set showmode " 状态栏显示vim当前模式
 set scrolloff=0 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
