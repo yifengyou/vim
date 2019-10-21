@@ -102,12 +102,12 @@ imap <c-j> <Down>
 imap <c-h> <Left>
 imap <c-l> <Right>
 " 删除多余空行
-:nmap cl :1,$g/^$/d
+":nmap cl :1,$g/^$/d
 " 删除行尾空格和tab符号
-:nmap cs :1,$s/\s\+$//g
-:nmap ct :1,$s/\t\+$//g
+":nmap cs :1,$s/\s\+$//g
+":nmap ct :1,$s/\t\+$//g
 " 删除行尾^M符号
-:nmap cm :1,$s/\r//g
+":nmap cm :1,$s/\r//g
 " Windows风格全选组合键<c-a>
 nmap <c-a> ggVG$
 imap <c-a> <ESC>ggVG$
