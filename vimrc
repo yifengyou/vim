@@ -27,7 +27,9 @@ nmap <F9>   :TrinityToggleAll<CR>
 nmap <F10>  :TrinityToggleTagList<CR> 
 nmap <F11>  :TrinityToggleSourceExplorer<CR> 
 nmap <F12>  :TrinityToggleNERDTree<CR> 
-nnoremap <S-Z> <Esc>:wqa!<CR>
+" replace ZZ
+nnoremap <S-Z><S-Z> <Esc>:wqa!<CR>
+
 
 " tlist config
 "let Tlist_Use_Right_Window=1
