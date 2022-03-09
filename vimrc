@@ -27,7 +27,7 @@ nmap <F9>   :TrinityToggleAll<CR>
 nmap <F10>  :TrinityToggleSourceExplorer<CR> 
 nmap <F11>  :TrinityToggleTagList<CR> 
 nmap <F12>  :TrinityToggleNERDTree<CR> 
-nnoremap <S-Z> <Esc>:TlistClose<CR> :SrcExplClose<CR> :NERDTreeClose<CR> :wq!<CR> 
+nnoremap <S-Z> <Esc>:wqa!<CR>
 
 " tlist config
 "let Tlist_Use_Right_Window=1
@@ -45,7 +45,9 @@ let Tlist_WinWidth=40
 let g:NERDTreeDirArrowExpandable='►'
 let g:NERDTreeDirArrowCollapsible='▼'
 "let NERDTreeIgnore=['\.pyc','\~$','\.swp']
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:Tlist")) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:SrcExpl")) | q | endif
 
 "" srcExpr
 let g:SrcExpl_winHeight=8
