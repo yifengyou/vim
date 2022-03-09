@@ -8,6 +8,8 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'preservim/nerdtree'
 Plug 'wenlongche/SrcExpl'
 Plug 'wesleyche/Trinity'
+Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 call plug#end() 
 
 let mapleader=";"
@@ -67,6 +69,9 @@ let g:SrcExpl_winHeight=8
 let g:SrcExpl_jumpKey="<ENTER>"
 let g:SrcExpl_gobackKey="<SPACE>"
 "let g:SrcExpl_nestedAutoCmd=1
+
+" ctrlp
+let g:ctrlp_working_path_mode = ''
 
 colorscheme gruvbox
 
