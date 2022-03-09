@@ -24,8 +24,8 @@ nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,
 autocmd VimEnter * TrinityToggleAll
 nmap <F9>   :TrinityToggleAll<CR>
 "nmap <F9>   :TrinityUpdateWindow<CR> :TrinityToggleAll<CR>
-nmap <F10>  :TrinityToggleSourceExplorer<CR> 
-nmap <F11>  :TrinityToggleTagList<CR> 
+nmap <F10>  :TrinityToggleTagList<CR> 
+nmap <F11>  :TrinityToggleSourceExplorer<CR> 
 nmap <F12>  :TrinityToggleNERDTree<CR> 
 nnoremap <S-Z> <Esc>:wqa!<CR>
 
