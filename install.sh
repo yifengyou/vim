@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Please install ctags by yourself!"
+echo "Redhat/CentOS/Rocky: yum install -y ctags "
+echo "Debian/Ubuntu: apt-get install -y ctags "
+sleep 3
 
 cp vimrc ~/.vimrc -a
 echo "Install vimrc Success!"
