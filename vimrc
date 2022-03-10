@@ -1,7 +1,7 @@
 
 " github.com/yifengyou/vim
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox' 
+"Plug 'morhetz/gruvbox' 
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/taglist.vim'
