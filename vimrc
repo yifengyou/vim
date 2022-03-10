@@ -20,7 +20,7 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>t :Tlist<CR>
 nnoremap <Leader>e :SrcExplToggle<CR>
 nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
-nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set nopaste<CR>
+nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
 
 " trinity
 autocmd VimEnter * TrinityToggleAll
