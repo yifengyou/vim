@@ -3,7 +3,6 @@
 echo "Please install ctags by yourself!"
 echo "Redhat/CentOS/Rocky: yum install -y ctags cscope"
 echo "Debian/Ubuntu: apt-get install -y ctags cscope"
-sleep 3
 
 cp vimrc ~/.vimrc -a
 echo "Install vimrc Success!"

@@ -94,14 +94,18 @@ set clipboard=unnamedplus
 set clipboard=unnamed
 set nu
 set relativenumber
-set sw=4
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,
 set list
+set nofoldenable " 关闭代码折叠
+" replace tab to 4 space
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-set nofoldenable " 关闭代码折叠
+if has("autocmd")
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+endif
 
 filetype on " 侦测文件类型
 filetype plugin on "载入文件类型插件
