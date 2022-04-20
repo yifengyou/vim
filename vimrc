@@ -23,7 +23,7 @@ nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<C
 nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
 
 " trinity
-autocmd VimEnter * TrinityToggleAll
+"autocmd VimEnter * TrinityToggleAll
 nmap <F9>   :TrinityToggleAll<CR>
 "nmap <F9>   :TrinityUpdateWindow<CR> :TrinityToggleAll<CR>
 nmap <F10>  :TrinityToggleTagList<CR> 
