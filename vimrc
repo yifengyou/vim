@@ -1,7 +1,49 @@
+" 使用vim自己的键盘模式，避免vi键盘模式的以前版本的一些bug和局限
+set nocompatible
+
+" 编码格式为utf-8
+set encoding=utf-8
+
+" 语法高亮和文件类型检测
+syntax on
+filetype on
+filetype plugin on
+
+" 显示行号和光标行高亮
+set nu
+set cursorline
+
+" 缩进和Tab键的大小和转换
+set cindent " c缩进
+set autoindent " 自动缩进
+set smartindent " 智能缩进
+set tabstop=4 " 一个tab键所占的列数
+set shiftwidth=4 " 缩进的列数
+set softtabstop=4 " 敲入tab键时实际占有的列数
+"set expandtab " linux内核不允许自动将tab键输入转化为相应的空格数
+set clipboard=unnamedplus
+set clipboard=unnamed
+set nofoldenable " 关闭代码折叠
+
+" 搜索和替换的选项
+set hlsearch " 高亮搜索结果
+set incsearch " 搜索逐字符高亮
+set ignorecase " 搜索时忽略大小写
+
+" 显示不可见字符
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,
+set list
+
+" 状态栏和界面的样式
+set t_Co=256 " 颜色模式为256色
+set laststatus=2 " 显示状态栏
+let g:airline_powerline_fonts = 1 " 使用powerline字体（需要安装）
+let g:airline#extensions#tabline#enabled = 1 " 显示tab栏
+
 
 " github.com/yifengyou/vim
 call plug#begin('~/.vim/plugged')
-"Plug 'morhetz/gruvbox' 
+"Plug 'morhetz/gruvbox'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/taglist.vim'
@@ -10,10 +52,10 @@ Plug 'wenlongche/SrcExpl'
 Plug 'wesleyche/Trinity'
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-call plug#end() 
+call plug#end()
 
 let mapleader=";"
-nnoremap <Leader>q :TlistClose<CR> :SrcExplClose<CR> :NERDTreeClose<CR> :q!<CR> 
+nnoremap <Leader>q :TlistClose<CR> :SrcExplClose<CR> :NERDTreeClose<CR> :q!<CR>
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
@@ -26,12 +68,11 @@ nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,
 "autocmd VimEnter * TrinityToggleAll
 nmap <F9>   :TrinityToggleAll<CR>
 "nmap <F9>   :TrinityUpdateWindow<CR> :TrinityToggleAll<CR>
-nmap <F10>  :TrinityToggleTagList<CR> 
-nmap <F11>  :TrinityToggleSourceExplorer<CR> 
-nmap <F12>  :TrinityToggleNERDTree<CR> 
+nmap <F10>  :TrinityToggleTagList<CR>
+nmap <F11>  :TrinityToggleSourceExplorer<CR>
+nmap <F12>  :TrinityToggleNERDTree<CR>
 " replace ZZ
 nnoremap <S-Z><S-Z> <Esc>:wqa!<CR>
-
 
 " tlist config
 "let Tlist_Use_Right_Window=1
@@ -61,7 +102,7 @@ let g:SrcExpl_winHeight=8
 "        \ "__Tag_List__",
 "        \ "_NERD_tree_",
 "        \ "Source_Explorer"
-"    \ ] 
+"    \ ]
 "let g:SrcExpl_searchLocalDef=1
 "let g:SrcExpl_isUpdateTags=0
 "let g:SrcExpl_updateTagsCmd="ctags --sort=foldcase -R ."
@@ -76,36 +117,15 @@ let g:ctrlp_funky_syntax_highlight=1
 nnoremap <S-U> :CtrlPFunky<Cr>
 nnoremap <S-U><S-U> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-
 "cscope
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> 
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> 
-
-
-"colorscheme gruvbox
-
-set clipboard=unnamedplus
-set clipboard=unnamed
-set nu
-set relativenumber
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,
-set list
-set nofoldenable " 关闭代码折叠
-" replace tab to 4 space
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-if has("autocmd")
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-endif
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 filetype on " 侦测文件类型
 filetype plugin on "载入文件类型插件
