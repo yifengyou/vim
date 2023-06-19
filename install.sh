@@ -30,6 +30,7 @@ cp -a vim ~/.vim
 echo " * Install vim plugins success!"
 
 sudo cp -a `readlink -f $0` /bin/update-vim
+sudo chmod +x /bin/update-vim
 echo " * Install update-vim success!"
 
 echo " * All done! Enjoy ~_~ "
