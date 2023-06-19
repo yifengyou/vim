@@ -9,6 +9,7 @@ else
 fi
 
 GITDIR="/tmp/yifengyou-vim-$RANDOM"
+# git config --global url."git@github.com:".insteadOf https://github.com/
 git clone https://github.com/yifengyou/vim.git ${GITDIR}
 if [ $? -ne 0 ]; then
 	echo " * Download vim.git failed!Make sure your network is ok"
