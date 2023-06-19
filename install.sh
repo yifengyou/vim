@@ -27,7 +27,7 @@ if [ -d ~/.vim ]; then
 	mv ~/.vim ${BACKUPVIM}
 	echo " * Backup .vim to ${BACKUPVIM}"
 fi
-cp -a vim ~/.vim
+tar -xf vim.tar.bz2 -C ~/
 echo " * Install vim plugins success!"
 
 sudo cp -a `readlink -f $0` /bin/update-vim
