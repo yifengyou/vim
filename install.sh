@@ -8,17 +8,19 @@ else
 	echo " * Error: unknown system. Skip pkg install"
 fi
 
-GITDIR="/tmp/yifengyou-vim-$RANDOM"
-# git config --global url."git@github.com:".insteadOf https://github.com/
-git clone https://github.com/yifengyou/vim.git ${GITDIR}
-if [ $? -ne 0 ]; then
-	echo " * Download vim.git failed!Make sure your network is ok"
-	exit 1
-else
-	echo " * Git clone success!"
+if [ ! -f vim.tar.bz2 ]; then
+	GITDIR="/tmp/yifengyou-vim-$RANDOM"
+	# git config --global url."git@github.com:".insteadOf https://github.com/
+	git clone https://github.com/yifengyou/vim.git ${GITDIR}
+	if [ $? -ne 0 ]; then
+		echo " * Download vim.git failed!Make sure your network is ok"
+		exit 1
+	else
+		echo " * Git clone success!"
+	fi
+	cd ${GITDIR}
 fi
 
-cd ${GITDIR}
 cp -a vimrc ~/.vimrc
 echo " * Install vimrc success!"
 
