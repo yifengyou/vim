@@ -26,7 +26,7 @@ set clipboard=unnamed
 set nofoldenable " 关闭代码折叠
 
 " 搜索和替换的选项
-set hlsearch " 高亮搜索结果
+"set hlsearch " 高亮搜索结果
 set incsearch " 搜索逐字符高亮
 set ignorecase " 搜索时忽略大小写
 

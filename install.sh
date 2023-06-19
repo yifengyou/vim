@@ -1,18 +1,33 @@
 #!/bin/bash
 
-echo "Please install ctags by yourself!"
-echo "Redhat/CentOS/Rocky: yum install -y ctags cscope"
-echo "Debian/Ubuntu: apt-get install -y ctags cscope"
+if command -v apt >/dev/null 2>&1; then
+	sudo apt install -y ctags cscope vim git
+elif command -v yum >/dev/null 2>&1; then
+	sudo yum install -y ctags cscope vim git
+else
+	echo " * Error: unknown system. Skip pkg install"
+fi
 
-cp vimrc ~/.vimrc -a
-echo "Install vimrc Success!"
+git clone https://github.com/yifengyou/vim.git /tmp/yifengyou-vim.git
 
-mkdir -p ~/.vim/autoload/ &> /dev/null || true
-cp plug.vim ~/.vim/autoload/plug.vim -a
-echo "Install plug.vim Success!"
+if [ $? -ne 0 ]; then
+	echo " * Download vim.git failed!Make sure your network is ok"
+	exit 1
+fi
 
-echo "wait a moment..."
-sleep 1
-vim -c "PlugInstall" -c "q" -c "q" 
-echo "All done! Enjoy ~~ " 
+cd /tmp/yifengyou-vim.git
+
+cp -a vimrc ~/.vimrc
+echo " * Install vimrc Success!"
+
+if [ -d ~/.vim ]; then
+	mv ~/.vim /tmp/
+fi
+cp -a vim ~/.vim
+echo " * Install plug.vim Success!"
+
+sudo cp -a `readlink -f $0` /bin/update-vim
+echo " * Install  Success!"
+
+echo " * All done! Enjoy ~~ " 
 
