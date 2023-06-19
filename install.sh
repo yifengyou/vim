@@ -22,7 +22,9 @@ cp -a vimrc ~/.vimrc
 echo " * Install vimrc success!"
 
 if [ -d ~/.vim ]; then
-	mv ~/.vim /tmp/
+	BACKUPVIM="/tmp/.vim-$RANDOM"
+	mv ~/.vim ${BACKUPVIM}
+	echo " * Backup .vim to ${BACKUPVIM}"
 fi
 cp -a vim ~/.vim
 echo " * Install vim plugins success!"
