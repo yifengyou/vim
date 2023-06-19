@@ -33,4 +33,4 @@ sudo cp -a `readlink -f $0` /bin/update-vim
 sudo chmod +x /bin/update-vim
 echo " * Install update-vim success!"
 
-echo " * All done! Enjoy ~_~ "
+echo " * All done! Enjoy ٩(•̤̀ᵕ•̤́๑)ᵒᵏᵎᵎᵎᵎ "
