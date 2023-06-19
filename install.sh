@@ -1,33 +1,33 @@
 #!/bin/bash
 
 if command -v apt >/dev/null 2>&1; then
-	sudo apt install -y ctags cscope vim git
+	sudo apt install -y exuberant-ctags cscope vim git
 elif command -v yum >/dev/null 2>&1; then
 	sudo yum install -y ctags cscope vim git
 else
 	echo " * Error: unknown system. Skip pkg install"
 fi
 
-git clone https://github.com/yifengyou/vim.git /tmp/yifengyou-vim.git
-
+GITDIR="/tmp/yifengyou-vim-$RANDOM"
+git clone https://github.com/yifengyou/vim.git ${GITDIR}
 if [ $? -ne 0 ]; then
 	echo " * Download vim.git failed!Make sure your network is ok"
 	exit 1
+else
+	echo " * Git clone success!"
 fi
 
-cd /tmp/yifengyou-vim.git
-
+cd ${GITDIR}
 cp -a vimrc ~/.vimrc
-echo " * Install vimrc Success!"
+echo " * Install vimrc success!"
 
 if [ -d ~/.vim ]; then
 	mv ~/.vim /tmp/
 fi
 cp -a vim ~/.vim
-echo " * Install plug.vim Success!"
+echo " * Install vim plugins success!"
 
 sudo cp -a `readlink -f $0` /bin/update-vim
-echo " * Install  Success!"
+echo " * Install update-vim success!"
 
-echo " * All done! Enjoy ~~ " 
-
+echo " * All done! Enjoy ~_~ "
