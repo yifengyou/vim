@@ -36,7 +36,8 @@ hi Visual cterm=NONE ctermbg=236 ctermfg=NONE
 "hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 
 " 显示不可见字符
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,
+"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣,
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,
 set list
 
 " 状态栏和界面的样式
@@ -47,6 +48,10 @@ set laststatus=2 " 显示状态栏
 let mapleader=";"
 nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
 nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
+
+filetype on " 侦测文件类型
+filetype plugin on "载入文件类型插件
+filetype plugin indent on " 加载vim自带和插件相应的语法和文件类型相关脚本
 
 " github.com/yifengyou/vim
 call plug#begin('~/.vim/plugged')
@@ -62,6 +67,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 call plug#end()
 
+" vim-airline
 let g:airline_powerline_fonts = 1 " 使用powerline字体（需要安装）
 let g:airline#extensions#tabline#enabled = 1 " 显示tab栏
 let g:airline_theme='kolor'
@@ -126,7 +132,17 @@ let g:ctrlp_funky_syntax_highlight=1
 nnoremap <S-U> :CtrlPFunky<Cr>
 nnoremap <S-U><S-U> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-"cscope
+" cscope (cscope -Rbq)
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=1
+    set cst
+    set nocsverb
+    if filereadable("cscope.out")
+		cs add cscope.out
+	endif
+    set csverb
+endif
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -136,7 +152,6 @@ nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-filetype on " 侦测文件类型
-filetype plugin on "载入文件类型插件
-filetype plugin indent on " 加载vim自带和插件相应的语法和文件类型相关脚本
+
+
 
