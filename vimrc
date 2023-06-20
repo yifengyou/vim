@@ -12,7 +12,6 @@ filetype plugin on
 " 显示行号和光标行高亮
 set nu
 set rnu
-"hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE
 
 " 缩进和Tab键的大小和转换
 set cindent " c缩进
@@ -28,10 +27,13 @@ set nofoldenable " 关闭代码折叠
 
 " 搜索和替换的选项
 set hlsearch " 高亮搜索结果
-"hi Search cterm=NONE ctermfg=grey ctermbg=blue
-hi Search   cterm=NONE ctermbg=236 ctermfg=NONE
-set incsearch " 搜索逐字符高亮
 set ignorecase " 搜索时忽略大小写
+hi Search   cterm=NONE ctermbg=236 ctermfg=NONE
+
+set incsearch " 搜索逐字符高亮
+hi Visual cterm=NONE ctermbg=236 ctermfg=NONE
+"set cursorline
+"hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 
 " 显示不可见字符
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,
@@ -40,15 +42,18 @@ set list
 " 状态栏和界面的样式
 set t_Co=256 " 颜色模式为256色
 set laststatus=2 " 显示状态栏
-let g:airline_powerline_fonts = 1 " 使用powerline字体（需要安装）
-let g:airline#extensions#tabline#enabled = 1 " 显示tab栏
 
+" 显示空字符
+let mapleader=";"
+nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
+nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
 
 " github.com/yifengyou/vim
 call plug#begin('~/.vim/plugged')
 "Plug 'morhetz/gruvbox'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/taglist.vim'
 Plug 'preservim/nerdtree'
 Plug 'wenlongche/SrcExpl'
@@ -57,16 +62,16 @@ Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 call plug#end()
 
-let mapleader=";"
+let g:airline_powerline_fonts = 1 " 使用powerline字体（需要安装）
+let g:airline#extensions#tabline#enabled = 1 " 显示tab栏
+let g:airline_theme='kolor'
+
 nnoremap <Leader>q :TlistClose<CR> :SrcExplClose<CR> :NERDTreeClose<CR> :q!<CR>
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>t :Tlist<CR>
 nnoremap <Leader>e :SrcExplToggle<CR>
-" 显示空字符
-nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
-nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
 
 " trinity
 "autocmd VimEnter * TrinityToggleAll
