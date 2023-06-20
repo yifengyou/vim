@@ -134,24 +134,17 @@ nnoremap <S-U><S-U> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " cscope (cscope -Rbq)
 if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=1
-    set cst
-    set nocsverb
-    if filereadable("cscope.out")
+	set cscopetag
+	set csprg=/usr/bin/cscope
+	set csto=1 " ctrl+] 优先使用cscope
+	set cst " ctrl+] 显示多个匹配项而非近一条
+	set nocsverb " 是否显示详细信息
+	if filereadable("cscope.out")
 		cs add cscope.out
 	endif
-    set csverb
+	set cscopequickfix=s-,c-,d-,i-,t-,e-
+	nmap <C-n> :cnext<CR>
+	nmap <C-p> :cprev<CR>
 endif
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-
 
 
