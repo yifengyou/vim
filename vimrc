@@ -142,9 +142,9 @@ if has("cscope")
 	if filereadable("cscope.out")
 		cs add cscope.out
 	endif
-	set cscopequickfix=s-,c-,d-,i-,t-,e-
+	set cscopequickfix=s+,c+,d+,i+,t+,e+
 	nmap <C-n> :cnext<CR>
-	nmap <C-p> :cprev<CR>
+	nmap <C-b> :cprev<CR>
 endif
 
 
