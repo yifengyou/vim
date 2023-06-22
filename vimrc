@@ -27,7 +27,7 @@ set nofoldenable " 关闭代码折叠
 
 " 搜索和替换的选项
 set hlsearch " 高亮搜索结果
-set ignorecase " 搜索时忽略大小写
+set noignorecase " 搜索时忽略大小写
 hi Search   cterm=NONE ctermbg=236 ctermfg=NONE
 
 set incsearch " 搜索逐字符高亮
