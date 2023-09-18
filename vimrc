@@ -37,7 +37,8 @@ hi Visual cterm=NONE ctermbg=236 ctermfg=NONE
 
 " 显示不可见字符
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣,
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,
+"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,
+set listchars=tab:\|-,trail:~,extends:>,precedes:<,
 set list
 
 " 状态栏和界面的样式
@@ -47,7 +48,9 @@ set laststatus=2 " 显示状态栏
 " 显示空字符
 let mapleader=";"
 nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
-nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:_,<CR> :set list<CR> :set nopaste<CR>
+"nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
+"nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\|-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
+nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\|-,trail:.,extends:>,precedes:<,<CR> :set list<CR> :set nopaste<CR>
 
 filetype on " 侦测文件类型
 filetype plugin on "载入文件类型插件
@@ -121,6 +124,7 @@ let g:SrcExpl_winHeight=8
 "let g:SrcExpl_searchLocalDef=1
 "let g:SrcExpl_isUpdateTags=0
 "let g:SrcExpl_updateTagsCmd="ctags --sort=foldcase -R ."
+let g:SrcExpl_updateTagsCmd="cscope -bkq -i cscope.files"
 "let g:SrcExpl_updateTagsKey=""
 let g:SrcExpl_jumpKey="<ENTER>"
 let g:SrcExpl_gobackKey="<SPACE>"
@@ -143,10 +147,25 @@ if has("cscope")
 		cs add cscope.out
 	endif
 	set cscopequickfix=s-,c-,d-,i-,t-,e-
-	nmap <C-n> :cnext<CR>
-	nmap <C-b> :cprev<CR>
-	nmap <C-q> :copen<CR>
-	nmap <C-c> :cclose<CR>
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+	"nmap <;-n> :cnext<CR>
+	"nmap <;-b> :cprev<CR>
+	"nmap <C-q> :copen<CR>
+	"nmap <C-c> :cclose<CR>
 endif
 
 
+nnoremap x "_x
+nnoremap X "_X
+nnoremap d "_d
+nnoremap dd "_dd
+nnoremap D "_D
+vnoremap d "_d
+vnoremap dd "_dd
