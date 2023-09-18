@@ -16,9 +16,11 @@ set tabstop=4 " 一个tab键所占的列数
 set shiftwidth=4 " 缩进的列数
 set softtabstop=4 " 敲入tab键时实际占有的列数
 "set expandtab " linux内核不允许自动将tab键输入转化为相应的空格数
-set clipboard=unnamedplus
-set clipboard=unnamed
+"set clipboard=unnamedplus
 set nofoldenable " 关闭代码折叠
+set nopaste
+set clipboard=unnamed
+set mouse-=a
 
 " 搜索和替换的选项
 set hlsearch " 高亮搜索结果
@@ -157,10 +159,13 @@ syntax on
 filetype on
 filetype plugin on
 
-nnoremap x "_x
-nnoremap X "_X
-nnoremap d "_d
-nnoremap dd "_dd
-nnoremap D "_D
-vnoremap d "_d
-vnoremap dd "_dd
+"nnoremap x "_x
+"nnoremap X "_X
+"nnoremap d "_d
+"nnoremap dd "_dd
+"nnoremap D "_D
+"vnoremap d "_d
+"vnoremap dd "_dd
+
+highlight Visual term=reverse cterm=reverse gui=reverse
+
