@@ -4,11 +4,6 @@ set nocompatible
 " 编码格式为utf-8
 set encoding=utf-8
 
-" 语法高亮和文件类型检测
-syntax on
-filetype on
-filetype plugin on
-
 " 显示行号和光标行高亮
 set nu
 set rnu
@@ -51,10 +46,6 @@ nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<C
 "nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
 "nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\|-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
 nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\\|-,trail:.,extends:>,precedes:<,<CR> :set list<CR> :set nopaste<CR>
-
-filetype on " 侦测文件类型
-filetype plugin on "载入文件类型插件
-filetype plugin indent on " 加载vim自带和插件相应的语法和文件类型相关脚本
 
 " github.com/yifengyou/vim
 call plug#begin('~/.vim/plugged')
@@ -160,6 +151,11 @@ if has("cscope")
 	"nmap <C-q> :copen<CR>
 	"nmap <C-c> :cclose<CR>
 endif
+
+" 语法高亮和文件类型检测
+syntax on
+filetype on
+filetype plugin on
 
 nnoremap x "_x
 nnoremap X "_X
