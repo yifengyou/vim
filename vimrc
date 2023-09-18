@@ -38,7 +38,7 @@ hi Visual cterm=NONE ctermbg=236 ctermfg=NONE
 " 显示不可见字符
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣,
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,
-set listchars=tab:\|-,trail:~,extends:>,precedes:<,
+set listchars=tab:\|-,trail:.,extends:>,precedes:<,
 set list
 
 " 状态栏和界面的样式
@@ -50,7 +50,7 @@ let mapleader=";"
 nnoremap <Leader>s :set nonumber<CR> :set norelativenumber<CR> :set listchars=<CR> :set paste<CR> :set nolist<CR>
 "nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
 "nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\|-,trail:~,extends:>,precedes:<,space:·,<CR> :set list<CR> :set nopaste<CR>
-nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\|-,trail:.,extends:>,precedes:<,<CR> :set list<CR> :set nopaste<CR>
+nnoremap <Leader>S :set number<CR> :set relativenumber<CR> :set listchars=tab:\\|-,trail:.,extends:>,precedes:<,<CR> :set list<CR> :set nopaste<CR>
 
 filetype on " 侦测文件类型
 filetype plugin on "载入文件类型插件
@@ -160,7 +160,6 @@ if has("cscope")
 	"nmap <C-q> :copen<CR>
 	"nmap <C-c> :cclose<CR>
 endif
-
 
 nnoremap x "_x
 nnoremap X "_X
