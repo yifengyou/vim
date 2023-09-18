@@ -14,9 +14,9 @@ set nu
 set rnu
 
 " 缩进和Tab键的大小和转换
-set cindent " c缩进
+"set cindent " c缩进
 set autoindent " 自动缩进
-set smartindent " 智能缩进
+"set smartindent " 智能缩进
 set tabstop=4 " 一个tab键所占的列数
 set shiftwidth=4 " 缩进的列数
 set softtabstop=4 " 敲入tab键时实际占有的列数
